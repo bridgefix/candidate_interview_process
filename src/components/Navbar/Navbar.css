@@ -1,0 +1,41 @@
+.sidebar {
+    background-color: #12646c;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-menu li {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 10px 0px;
+}
+  
+  .sidebar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .sidebar-menu li a:hover {
+   padding: 10px;
+  }
+  
+  .sidebar-menu li.active a {
+    border-bottom: 3px solid #b3755c ;
+    padding: 10px;
+  }
+  .navbar-toggler{
+    background-color: white;
+  }
+  

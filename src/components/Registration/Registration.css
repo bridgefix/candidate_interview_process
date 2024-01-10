@@ -1,0 +1,57 @@
+.registrationStyle h6 {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.registrationStyle {
+    width: 70%;
+    padding: 40px;
+    background-color: white;
+    margin-top: 100px;
+}
+
+.css-mhc70k-MuiGrid-root>.MuiGrid-item {
+    padding-left: 0px;
+    text-align: left;
+}
+
+.MuiFormGroup-root {
+    display: flex;
+}
+
+.css-j204z7-MuiFormControlLabel-root {
+    padding-right: 40px;
+}
+
+.MuiGrid-root {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.MuiFormControl-root {
+    width: 30%;
+}
+.submitBTN {
+    margin-top: 50px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: end;
+}
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 8.5px 10px !important
+}
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    top: -7px !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 8.5px 10px !important
+}
+.css-13alzh-MuiAutocomplete-root .MuiOutlinedInput-root {
+    padding: 0px !important;
+}
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-our6gr-MuiAutocomplete-root .MuiOutlinedInput-root{
+    padding: 0px !important;
+}

@@ -1,0 +1,25 @@
+.loginStyle {
+  /* background-image: url("https://pic.pikbest.com/02/18/70/35c888piCKsP.jpg!bw700"); */
+  min-height: 729px;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #12646c;
+}
+.formStyle{
+    background: white;
+    padding: 20px 40px 65px 40px;
+    border-radius: 20px
+}
+.formStyle button{
+    background:#12646c
+}
+
+.formStyle button:hover{
+    background:#08484e;
+}
+

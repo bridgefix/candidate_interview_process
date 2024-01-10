@@ -1,0 +1,31 @@
+.mainDivStyle {
+    width: 90%;
+    padding: 40px;
+    background-color: white;
+    margin-top: 100px;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    text-align: left;
+}
+
+.mainDivStyle p {
+    text-align: left;
+}
+
+.qustionsStyle {
+    margin-top: 30px;
+}
+
+.MuiGrid-root {
+    display: flex;
+    align-items: center;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 12px !important
+}
+.feedbackStyle input{
+    padding: 14px !important;
+
+}
