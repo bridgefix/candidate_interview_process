@@ -55,3 +55,6 @@
 .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-our6gr-MuiAutocomplete-root .MuiOutlinedInput-root{
     padding: 0px !important;
 }
+label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    width: 350px !important;
+}

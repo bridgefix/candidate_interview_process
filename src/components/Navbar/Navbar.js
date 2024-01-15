@@ -53,7 +53,7 @@ function Navbar() {
                                 <li onClick={logoutHandle}>
                                     logout
                                 </li>
-                                <li>
+                                <li style={{textTransform:"capitalize"}}>
                                     {_localData ? <div><AccountCircleIcon /> {_localData.name}</div> : null}
                                 </li>
                             </ul>

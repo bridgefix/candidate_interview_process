@@ -5,7 +5,6 @@ const initialState = {
     branchList: [],
     experienceList: [],
     technologyList: [],
-    candidateRegister: false,
     candidates_list: [],
 }
 
@@ -30,11 +29,6 @@ const RegistrationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 experienceList: action.payload
-            }
-        case CANDIDATE_REGISTER:
-            return {
-                ...state,
-                candidateRegister: action.payload
             }
         case CANDIDATE_LIST_RESPONSE:
             return {

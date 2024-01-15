@@ -1,6 +1,8 @@
 import axios from "axios";
+import swal from "sweetalert";
 export const EMPLOYEE_RESPONSE = "EMPLOYEE_RESPONSE"
 export const GET_QUESTION_LIST = "GET_QUESTION_LIST"
+export const INTERVIEW_POST_RESPONSE = "INTERVIEW_POST_RESPONSE"
 
 export const getEmployeeResponse = (data) => {
     return {
@@ -14,7 +16,6 @@ export const getQustionsList = (data) => {
         payload: data
     }
 }
-
 export const employee_List = (token) => {
     return (dispatch) => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/employee_list/`, token)
@@ -29,8 +30,33 @@ export const employee_List = (token) => {
 export const question_List = (quetionType, token) => {
     return (dispatch) => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/interview_question/?question_type=${quetionType}`, token)
-        .then((res) => {
+            .then((res) => {
                 dispatch(getQustionsList(res.data))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+}
+export const interViewResultApi = (result, payload, token) => {
+    return (dispatch) => {
+        dispatch({
+            type: INTERVIEW_POST_RESPONSE,
+            payload: false
+        });
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/interview_create/?action=${result}`, payload, token)
+            .then((res) => {
+                swal({
+                    title: result == "pass" ? "Good Job" : "Bad luck",
+                    text: result == "pass" ? " You are selected for Next round" : "you Are Not Selected Please try again after 3 month",
+                    icon: result == "pass" ? "success" : "error",
+                    timer: "5000",
+                    buttons: false
+                });
+                dispatch({
+                    type: INTERVIEW_POST_RESPONSE,
+                    payload: true
+                });
             })
             .catch((error) => {
                 console.log(error)

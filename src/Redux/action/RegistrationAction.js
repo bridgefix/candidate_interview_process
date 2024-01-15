@@ -1,9 +1,9 @@
 import axios from "axios";
+import swal from "sweetalert";
 export const UNIVERSITY_RESPONSE = "UNIVERSITY_RESPONSE"
 export const BRANCHES_RESPONSE = "BRANCHES_RESPONSE"
 export const TECHNOLOGIES_RESPONSE = "TECHNOLOGIES_RESPONSE"
 export const EXPERIRNCE_RESPONSE = "EXPERIRNCE_RESPONSE"
-export const CANDIDATE_REGISTER = "CANDIDATE_REGISTER"
 export const CANDIDATE_LIST_RESPONSE = "CANDIDATE_LIST_RESPONSE"
 
 export const getUniversityResponse = (data) => {
@@ -25,12 +25,6 @@ export const getTechnologiesResponse = (data) => {
     }
 }
 
-export const candidateRegisterResponse = (value) => {
-    return {
-        type: CANDIDATE_REGISTER,
-        payload: value
-    }
-}
 export const candidateResponse = (data) => {
     return {
         type: CANDIDATE_LIST_RESPONSE,
@@ -79,10 +73,16 @@ export const technologiesList = (token) => {
 }
 export const candidateRegister = (payload, token, navigate) => {
     return (dispatch) => {
-        dispatch(candidateRegisterResponse(false))
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/candidate_register/`, payload, token)
             .then((res) => {
-                dispatch(candidateRegisterResponse(true))
+                swal({
+                    title: "Success",
+                    text: "Candidate Registerd SuccessFully",
+                    icon: "success",
+                    successMode: true,
+                    timer: "3000",
+                    buttons: false
+                });
                 navigate("/Interview_schedule")
             })
             .catch((error) => {

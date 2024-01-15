@@ -1,8 +1,9 @@
-import { EMPLOYEE_RESPONSE, GET_QUESTION_LIST } from "../action/interviewAction";
+import { EMPLOYEE_RESPONSE, GET_QUESTION_LIST, INTERVIEW_POST_RESPONSE } from "../action/interviewAction";
 
 const initialState = {
     employeeList: [],
-    quetionsList: []
+    quetionsList: [],
+    interviewPostResponse: false
 }
 
 const InterviewReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const InterviewReducer = (state = initialState, action) => {
             return {
                 ...state,
                 quetionsList: action.payload
+            }
+        case INTERVIEW_POST_RESPONSE:
+            return {
+                ...state,
+                interviewPostResponse: action.payload
             }
         default:
             return state

@@ -5,8 +5,9 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Rating from '@mui/material/Rating';
 import { useDispatch, useSelector } from 'react-redux';
-import { employee_List, question_List } from '../../Redux/action/interviewAction';
+import { employee_List, interViewResultApi, question_List } from '../../Redux/action/interviewAction';
 import InterviewScheduleFields from './InterviewScheduleFields';
+import { useNavigate } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Interview() {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [timer, setTimer] = React.useState('');
   const [interviewState, setInterviewState] = React.useState(false)
@@ -26,6 +28,7 @@ export default function Interview() {
   const [feedback, setFeedback] = useState('')
   const employeeList = useSelector((state) => state.InterviewReducer.employeeList)
   const QuestionsList = useSelector((state) => state.InterviewReducer.quetionsList)
+  const interviewPostResponse = useSelector((state) => state.InterviewReducer.interviewPostResponse)
   let loginEmployeeProfile = JSON.parse(localStorage.getItem("employee_profile"))
   const config = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
 
@@ -39,6 +42,11 @@ export default function Interview() {
     setInterviewState(true)
   }
 
+  useEffect(() => {
+   if(interviewPostResponse){
+    setInterviewState(false)
+   }
+  },[interviewPostResponse])
   useEffect(() => {
     let countdownInterval;
     if (perticualrCandidate && typeof perticualrCandidate.time === 'number' && perticualrCandidate.time > 0 && interviewState) {
@@ -71,6 +79,17 @@ export default function Interview() {
     const employee = employeeList.find((emp) => emp.id === id);
     return employee ? employee.name : '';
   };
+
+  const resultSubmit = (result) => {
+    const payload = {
+      "candidate_interview_id": perticualrCandidate.candidateID,
+      "feedback": feedback,
+      "interview_rating": parseInt(rating),
+      "employee_user": interViewer,
+      "interview_round": perticualrCandidate.interviewRound
+    }
+    dispatch(interViewResultApi(result, payload, config))
+  }
 
   return (
     <div className='container mainDivStyle'>
@@ -140,8 +159,8 @@ export default function Interview() {
               </Grid>
               <Grid item xs={4} sx={{ justifyContent: 'end', alignItems: 'center' }} >
                 <Button variant="contained" color="error" sx={{ marginRight: "40px" }} onClick={() => setInterviewState(false)}>Cancel</Button>
-                <Button variant="contained" color="success" sx={{ marginRight: "40px" }} >Pass</Button>
-                <Button variant="contained" color="warning" sx={{ marginRight: "40px" }} >Fail</Button>
+                <Button variant="contained" color="success" sx={{ marginRight: "40px" }} onClick={() => resultSubmit("pass")}>Pass</Button>
+                <Button variant="contained" color="warning" sx={{ marginRight: "40px" }} onClick={() => resultSubmit("fail")}>Fail</Button>
               </Grid>
             </Grid>
           </>

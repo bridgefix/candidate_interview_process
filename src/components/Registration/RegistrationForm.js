@@ -86,7 +86,7 @@ function RegistrationForm() {
         <div className='container registrationStyle'>
             <h2>Cadidate Registration From</h2>
             <hr></hr>
-            <Grid container>
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>Full Name :</h6>
                 </Grid>
@@ -101,7 +101,7 @@ function RegistrationForm() {
                     </Box>
                 </Grid>
             </Grid>
-            <Grid container>
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>Contact :</h6>
                 </Grid>
@@ -117,19 +117,19 @@ function RegistrationForm() {
                 </Grid>
 
             </Grid>
-            <Grid container>
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>College : </h6>
                 </Grid>
                 <Grid item xs={10}>
                     <Autocomplete
-                        sx={{ m: 1, width: 350 }}
+                        sx={{ m: 1, width: 350,}}
                         disablePortal
                         id="combo-box-demo"
                         value={(university == null && universityInput == "") ? null : (university !== null ? university : universityInput)}
                         onChange={(event, value) => setUniversity(value)}
                         options={universityList}
-                        renderInput={(params) => <TextField {...params} label="University" value={university !== null ? university : universityInput} onChange={(e) => setUniversityInput(e.target.value == '' ? null : e.target.value)} />}
+                        renderInput={(params) => <TextField {...params} label="University" value={university !== null ? university : universityInput} onChange={(e) => setUniversityInput(e.target.value == '' ? null : e.target.value)} sx={{  width: 350}} />}
                     />
                     <LocalizationProvider dateAdapter={AdapterDayjs} variant="outlined">
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -151,7 +151,7 @@ function RegistrationForm() {
 
                 </Grid>
             </Grid>
-            <Grid container >
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>Branch : </h6>
                 </Grid>
@@ -170,7 +170,7 @@ function RegistrationForm() {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Grid container>
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>Work Experience : </h6>
                 </Grid>
@@ -189,7 +189,7 @@ function RegistrationForm() {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Grid container >
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2} alignItems='center'>
                     <h6>Date Of Birth : </h6>
                 </Grid>
@@ -210,7 +210,7 @@ function RegistrationForm() {
                     </LocalizationProvider>
                 </Grid>
             </Grid>
-            <Grid container >
+            <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
                     <h6>Technology : </h6>
                 </Grid>
@@ -230,7 +230,7 @@ function RegistrationForm() {
                 </Grid>
             </Grid>
             <Grid >
-                <Grid container >
+                <Grid container sx={{ marginTop: "20px" }}>
                     <Grid item xs={2}>
                         <h6>Gender :</h6>
                     </Grid>

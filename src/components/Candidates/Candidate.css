@@ -1,5 +1,17 @@
 .candidateStyle {
-    padding: 40px;
+    padding: 0px;
     background-color: white;
     margin-top: 100px;
+}
+.tss-hj53wm-MUIDataTableToolbar-titleText {
+    text-align: start;
+}
+.MuiFormControl-root {
+    width: 100%;
+}
+.mui-datatables-zcmli0-MuiGrid-root>.MuiGrid-item{
+    padding-top: 0px;
+}
+.MuiGrid-root {
+    margin-top: 0px;
 }
