@@ -43,12 +43,18 @@ export default function Interview() {
   }
 
   useEffect(() => {
-   if(interviewPostResponse){
-    setInterviewState(false)
-   }
-  },[interviewPostResponse])
+    if (interviewPostResponse) {
+      setInterviewState(false)
+      setFeedback("")
+      setRating("")
+    }
+  }, [interviewPostResponse])
   useEffect(() => {
     let countdownInterval;
+    if (!interviewState) {
+      setFeedback("")
+      setRating("")
+    }
     if (perticualrCandidate && typeof perticualrCandidate.time === 'number' && perticualrCandidate.time > 0 && interviewState) {
       let totalSeconds = perticualrCandidate.time * 60;
       const minutes = Math.floor(totalSeconds / 60);
@@ -68,6 +74,8 @@ export default function Interview() {
       }, 1000);
     }
     return () => clearInterval(countdownInterval);
+
+
   }, [interviewState, perticualrCandidate]);
 
 
