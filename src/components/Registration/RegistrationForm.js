@@ -162,7 +162,7 @@ function RegistrationForm() {
                             {
                                 branchList.length !== 0 && branchList.map((branch, i) => {
                                     return (
-                                        <MenuItem key={i} value={branch}>{branch}</MenuItem>
+                                        <MenuItem key={i} value={branch.id}>{branch.name}</MenuItem>
                                     )
                                 })
                             }
@@ -221,7 +221,7 @@ function RegistrationForm() {
                             {
                                 technologyList.length !== 0 && technologyList.map((tech, i) => {
                                     return (
-                                        <MenuItem key={i} value={tech}>{tech}</MenuItem>
+                                        <MenuItem key={i} value={tech.id}>{tech.name}</MenuItem>
                                     )
                                 })
                             }
