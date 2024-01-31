@@ -30,7 +30,7 @@ function Candidate() {
     }, []);
    
     const [responsive, setResponsive] = React.useState("standard");
-    const [tableBodyHeight, setTableBodyHeight] =React.useState("400px");
+    const [tableBodyHeight, setTableBodyHeight] =React.useState("480px");
     const [tableBodyMaxHeight, setTableBodyMaxHeight] = React.useState("");
     const [row, setRow] = React.useState([])
 
@@ -65,18 +65,20 @@ function Candidate() {
     };
     React.useEffect(() => {
         if (candidateList.length > 0) {
-            const newRows = candidateList.map((data, i) => [
-                i + 1,
-                data.full_name,
-                data.date_of_birth,
-                data.work_experience.name,
-                data.branch.name,
-                data.email,
-                data.phone_number,
-                data.technology.name,
-                data.university.name,
-                data.pass_out_year
-            ]);
+            const newRows = candidateList.map((data, i) => 
+                [
+                    i + 1,
+                    data.full_name,
+                    data.date_of_birth,
+                    data.work_experience.name,
+                    data.branch.name,
+                    data.email,
+                    data.phone_number,
+                    data.technology.name,
+                    data.university.name,
+                    data.pass_out_year
+                ]
+            );
 
             setRow(newRows);
         }
@@ -84,7 +86,7 @@ function Candidate() {
 
 
     return (
-        <div className='container candidateStyle'>
+        <div className='candidateStyle'>
             <CacheProvider value={muiCache}>
                 <ThemeProvider theme={createTheme()}>
                     <MUIDataTable

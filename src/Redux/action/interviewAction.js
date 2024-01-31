@@ -2,6 +2,7 @@ import axios from "axios";
 import swal from "sweetalert";
 export const EMPLOYEE_RESPONSE = "EMPLOYEE_RESPONSE"
 export const GET_QUESTION_LIST = "GET_QUESTION_LIST"
+export const GET_RESULT_LIST = "GET_RESULT_LIST"
 export const INTERVIEW_POST_RESPONSE = "INTERVIEW_POST_RESPONSE"
 
 export const getEmployeeResponse = (data) => {
@@ -13,6 +14,12 @@ export const getEmployeeResponse = (data) => {
 export const getQustionsList = (data) => {
     return {
         type: GET_QUESTION_LIST,
+        payload: data
+    }
+}
+export const getResultResponse = (data) => {
+    return {
+        type: GET_RESULT_LIST,
         payload: data
     }
 }
@@ -38,6 +45,7 @@ export const question_List = (quetionType, token) => {
             })
     }
 }
+
 export const interViewResultApi = (result, payload, token) => {
     return (dispatch) => {
         dispatch({
@@ -57,6 +65,17 @@ export const interViewResultApi = (result, payload, token) => {
                     type: INTERVIEW_POST_RESPONSE,
                     payload: true
                 });
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+}
+export const candidateResultList = (token) => {
+    return (dispatch) => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/all-interview/`, token)
+            .then((res) => {
+                dispatch(getResultResponse(res.data))
             })
             .catch((error) => {
                 console.log(error)

@@ -2,6 +2,7 @@ import React from 'react'
 import './Navbar.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Button } from '@mui/material';
 
 function Navbar() {
     const location = useLocation();
@@ -41,19 +42,21 @@ function Navbar() {
                                 <li className={activeTab === 'Interview' ? 'active' : ''}>
                                     <Link to='/Interview_schedule'>Interview</Link>
                                 </li>
-                                <li className={activeTab === 'Result' ? 'active' : ''}>
-                                    <Link to='/result'>Result</Link>
+                                <li className={activeTab === 'Candidate' ? 'active' : ''}>
+                                    <Link to='/candidate'>Candidate</Link>
                                 </li>
                                 <li className={activeTab === 'Dashboard' ? 'active' : ''}>
                                     <Link to='/dashboard'>Dashboard</Link>
                                 </li>
-                                <li className={activeTab === 'Candidate' ? 'active' : ''}>
-                                    <Link to='/candidate'>Candidate</Link>
+                                <li className={activeTab === 'Result' ? 'active' : ''}>
+                                    <Link to='/result'>Result</Link>
                                 </li>
                                 <li onClick={logoutHandle}>
-                                    logout
+                                    {/* <button onClick={logoutHandle}  style={{color:"black",background:"#ededa7",border:"none",padding:"2px 10px"}}> */}
+                                        logout
+                                    {/* </button> */}
                                 </li>
-                                <li style={{textTransform:"capitalize"}}>
+                                <li style={{ textTransform: "capitalize" }}>
                                     {_localData ? <div><AccountCircleIcon /> {_localData.name}</div> : null}
                                 </li>
                             </ul>
