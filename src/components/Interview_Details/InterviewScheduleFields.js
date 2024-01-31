@@ -71,7 +71,7 @@ function InterviewScheduleFields(props) {
         }
     }
     return (
-        <Grid container>
+        <Grid container style={{textAlign:"left"}}>
             <Grid item xs={4} justifyContent='start'>
                 <FormControl sx={{ m: 1, width: 350 }} size="small">
                     <InputLabel id="demo-select-small-label">Candidate Name</InputLabel>

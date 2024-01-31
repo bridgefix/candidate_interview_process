@@ -3,8 +3,11 @@
     font-size: 18px;
     margin-top: 10px;
 }
-
+.registrationStyle h2{
+    text-align: center;
+}
 .registrationStyle {
+    text-align: left;
     width: 70%;
     padding: 40px;
     background-color: white;
