@@ -29,7 +29,7 @@ function Result() {
         { name: "Email", options: { filter: false } },
         { name: "Phone", options: { filter: false } },
         { name: "Interviewer Name", options: { filter: false } },
-        { name: "Count", options: { filter: false } },
+        { name: "Rating", options: { filter: false } },
         { name: "Experience", options: { filter: false } },
         { name: "Technology", options: { filterOptions: { fullWidth: true } } },
         { name: "Round", options: { filter: false } },
