@@ -73,7 +73,7 @@ export const interViewResultApi = (result, payload, token) => {
 }
 export const candidateResultList = (token) => {
     return (dispatch) => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/all-interview/`, token)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/result-interview/`, token)
             .then((res) => {
                 dispatch(getResultResponse(res.data))
             })

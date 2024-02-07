@@ -21,7 +21,6 @@ function Result() {
     const [tableBodyMaxHeight, setTableBodyMaxHeight] = React.useState("");
     const resultList = useSelector((state) => state.InterviewReducer.resultList)
 
-
     const column = [
         { name: "S.N.", options: { filter: false } },
         { name: "Name", options: { filterOptions: { fullWidth: true } } },
@@ -55,19 +54,21 @@ function Result() {
 
     useEffect(() => {
         if (resultList.length > 0) {
-            const newRows = resultList.map((data, i) => [
-                i + 1,
-                data.full_name,
-                '30/1/2024',
-                data.email,
-                data.phone_number,
-                "harshita patidar",
-                '4',
-                data.work_experience.name,
-                data.technology.name,
-                data.interview_round,
-                data.final_result,
-            ]);
+            const newRows = resultList.map((data, i) => 
+                [
+                    i + 1,
+                    data.full_name,
+                    data.interview_date,
+                    data.email,
+                    data.phone_number,
+                    Array.isArray(data.interviewer) ? data.interviewer.join(', ') : data.interviewer,
+                    data.interview_rating,
+                    data.work_experience,
+                    data.technology,
+                    data.interview_round_done,
+                    data.result,
+                ]
+            );
 
             setRows(newRows);
         }

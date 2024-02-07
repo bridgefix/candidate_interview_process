@@ -94,7 +94,8 @@ export default function Interview() {
       "feedback": feedback,
       "interview_rating": parseInt(rating),
       "employee_user": interViewer,
-      "interview_round": perticualrCandidate.interviewRound
+      "interview_round": perticualrCandidate.interviewRound,
+      "interview_date":perticualrCandidate.date.format('YYYY-MM-DD')
     }
     dispatch(interViewResultApi(result, payload, config))
   }
