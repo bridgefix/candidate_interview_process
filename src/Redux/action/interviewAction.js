@@ -4,6 +4,7 @@ export const EMPLOYEE_RESPONSE = "EMPLOYEE_RESPONSE"
 export const GET_QUESTION_LIST = "GET_QUESTION_LIST"
 export const GET_RESULT_LIST = "GET_RESULT_LIST"
 export const INTERVIEW_POST_RESPONSE = "INTERVIEW_POST_RESPONSE"
+export const GET_DASHBOARD_RESPONSE = "GET_DASHBOARD_RESPONSE"
 
 export const getEmployeeResponse = (data) => {
     return {
@@ -20,6 +21,12 @@ export const getQustionsList = (data) => {
 export const getResultResponse = (data) => {
     return {
         type: GET_RESULT_LIST,
+        payload: data
+    }
+}
+export const dashboardResponse = (data) => {
+    return {
+        type: GET_DASHBOARD_RESPONSE,
         payload: data
     }
 }
@@ -76,6 +83,17 @@ export const candidateResultList = (token) => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/result-interview/`, token)
             .then((res) => {
                 dispatch(getResultResponse(res.data))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+}
+export const DashboardApi = () => {
+    return (dispatch) => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/dashboard-interview_process/`)
+            .then((res) => {
+                dispatch(dashboardResponse(res.data))
             })
             .catch((error) => {
                 console.log(error)

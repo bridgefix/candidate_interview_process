@@ -1,10 +1,11 @@
-import { EMPLOYEE_RESPONSE, GET_QUESTION_LIST, INTERVIEW_POST_RESPONSE ,GET_RESULT_LIST} from "../action/interviewAction";
+import { EMPLOYEE_RESPONSE, GET_QUESTION_LIST, INTERVIEW_POST_RESPONSE, GET_RESULT_LIST, GET_DASHBOARD_RESPONSE } from "../action/interviewAction";
 
 const initialState = {
     employeeList: [],
     quetionsList: [],
-    resultList:[],
-    interviewPostResponse: false
+    resultList: [],
+    interviewPostResponse: false,
+    dashboardData: null
 }
 
 const InterviewReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const InterviewReducer = (state = initialState, action) => {
             return {
                 ...state,
                 resultList: action.payload
+            }
+        case GET_DASHBOARD_RESPONSE:
+            return {
+                ...state,
+                dashboardData: action.payload
             }
         default:
             return state
