@@ -22,7 +22,7 @@ function Result() {
     const resultList = useSelector((state) => state.InterviewReducer.resultList)
 
     const column = [
-        { name: "S.N.", options: { filter: false } },
+        { name: "S.N.", options: { filter: false }},
         { name: "Name", options: { filterOptions: { fullWidth: true } } },
         { name: "Date", options: { filter: false } },
         { name: "Email", options: { filter: false } },
@@ -62,7 +62,7 @@ function Result() {
                     data.email,
                     data.phone_number,
                     Array.isArray(data.interviewer) ? data.interviewer.join(', ') : data.interviewer,
-                    data.interview_rating,
+                    `${data.interview_rating} / 5`,
                     data.work_experience,
                     data.technology,
                     data.interview_round_done,
