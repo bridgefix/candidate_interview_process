@@ -84,7 +84,7 @@ function RegistrationForm() {
 
     return (
         <div className='container registrationStyle'>
-            <h2>Cadidate Registration From</h2>
+            <h2>Candidate Registration From</h2>
             <hr></hr>
             <Grid container sx={{ marginTop: "20px" }}>
                 <Grid item xs={2}>
